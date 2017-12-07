@@ -3,6 +3,7 @@ MAINTAINER Waitfish <lipu8829@qq.com>
 RUN apt-get update
 RUN apt-get -y install gcc
 RUN apt-get -y install g++
+RUN apt-get -y install make
 ADD m4-1.4.18.tar.gz /opt/bitnami
 WORKDIR /opt/bitnami/m4-1.4.18
 RUN ./configure && make && make install
