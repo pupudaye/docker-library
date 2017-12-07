@@ -9,7 +9,7 @@ RUN apt-get -y install autoconf
 ADD redis-3.1.4.tgz /opt/bitnami
 WORKDIR /opt/bitnami/redis-3.1.4
 RUN /opt/bitnami/php/bin/phpize
-RUN ./configure –-with-php-config=/opt/bitnami/php/bin/php-config
+RUN ./configure --with-php-config=/opt/bitnami/php/bin/php-config
 RUN make
 RUN make install
 
