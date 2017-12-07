@@ -4,12 +4,8 @@ RUN apt-get update
 RUN apt-get -y install gcc
 RUN apt-get -y install g++
 RUN apt-get -y install make
-ADD m4-1.4.18.tar.gz /opt/bitnami
-WORKDIR /opt/bitnami/m4-1.4.18
-RUN ./configure && make && make install
-ADD autoconf-2.69.tar.xz /opt/bitnami
-WORKDIR /opt/bitnami/autoconf-2.69
-RUN ./configure && make && make install
+RUN apt-get -y install m4
+RUN apt-get -y install autoconf
 ADD redis-3.1.4.tgz /opt/bitnami
 WORKDIR /opt/bitnami/redis-3.1.4
 RUN /opt/bitnami/php/bin/phpize
