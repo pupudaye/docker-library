@@ -7,7 +7,13 @@ RUN apt-get -y install make
 RUN apt-get -y install m4
 RUN apt-get -y install autoconf
 ADD redis-3.1.4.tgz /opt/bitnami
+ADD amqp-1.4.0.tgz /opt/bitnami
 WORKDIR /opt/bitnami/redis-3.1.4
+RUN /opt/bitnami/php/bin/phpize
+RUN ./configure --with-php-config=/opt/bitnami/php/bin/php-config
+RUN make
+RUN make install
+WORKDIR /opt/bitnami/amqp-1.4.0
 RUN /opt/bitnami/php/bin/phpize
 RUN ./configure --with-php-config=/opt/bitnami/php/bin/php-config
 RUN make
