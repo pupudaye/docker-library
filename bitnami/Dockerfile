@@ -16,18 +16,6 @@ RUN ./configure --with-php-config=/opt/bitnami/php/bin/php-config
 RUN make
 RUN make install
 
-WORKDIR /opt/bitnami/rabbitmq-c-0.5.0
-RUN autoreconf -i
-RUN ./configure --prefix=/usr/local/rabbitmq-c
-RUN make
-RUN make install
-
-WORKDIR /opt/bitnami/amqp-1.4.0
-RUN /opt/bitnami/php/bin/phpize
-RUN ./configure --with-php-config=/opt/bitnami/php/bin/php-config --with-amqp --with-librabbitmq-dir=/usr/local/rabbitmq-c
-RUN make
-RUN make install
-
 WORKDIR /app
 ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["/run.sh"]
